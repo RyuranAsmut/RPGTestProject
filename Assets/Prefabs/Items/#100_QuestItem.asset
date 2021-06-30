@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b28ba85aca7fb0240977e49a7fb9ae16, type: 3}
+  m_Name: '#100_QuestItem'
+  m_EditorClassIdentifier: 
+  isUsable: 0
+  isWeapon: 0
+  isArmor: 0
+  itemId: 7
+  monetaryValue: 0
+  itemName: Ques Item
+  description: For a quest
+  itemSprite: {fileID: 21300218, guid: af6bc9dfbb9b08e4890cf8e4b8dd00c3, type: 3}
+  amountToChange: 0
+  affectHp: 0
+  affectMP: 0
+  affectStr: 0
+  inventoryAmount: 1
+  weaponStr: 0
+  armorDef: 0

@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5104830751634274499
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5104830751634274509}
+  - component: {fileID: 5104830751634274508}
+  m_Layer: 0
+  m_Name: PlayerStats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5104830751634274509
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5104830751634274499}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5104830751634274508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5104830751634274499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27961e9475eaaa342a99c29d5ee2a5e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charName: Bill
+  currentLevel: 1
+  currentExp: 0
+  expToLevelUp: 
+  maxLevel: 10
+  baseExp: 1000
+  currentHP: 800
+  maxHP: 1000
+  currentMP: 0
+  maxMP: 100
+  mpBonus: 10
+  power: 10
+  defense: 7
+  weaponPower: 0
+  armorDef: 0
+  equippedWeapon: None
+  equippedArmor: None
+  charImage: {fileID: 7152930139536384079, guid: a4783c61aa946864f98cf9dcb8e5a7d3,
+    type: 3}
