@@ -10,6 +10,8 @@ public class Shop : MonoBehaviour
     public GameObject shopMenu, buyMenu, sellMenu;
     public TextMeshProUGUI goldText;
 
+    private ShopSlots[] shopSlots;
+
     private void Start() 
     {
         instance = this;   
@@ -48,7 +50,10 @@ public class Shop : MonoBehaviour
         sellMenu.SetActive(true);
     }
 
-
+    public void SetItemSlots(ShopSlots[] itemsForSale)
+    {
+        shopSlots = itemsForSale;
+    }
 
 
 }
