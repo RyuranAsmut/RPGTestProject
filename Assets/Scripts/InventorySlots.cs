@@ -13,15 +13,23 @@ public class InventorySlots : MonoBehaviour
         inventoryItem = item;
     }
 
-
+    public void SetAmount(int amount)
+    {
+        inventoryAmount = amount;
+    }
 
     public Item GetItem()
     {
         return inventoryItem;
     }
 
-    public int GetItemAmount()
+    public int GetAmount()
     {
         return inventoryAmount;
+    }
+
+    public void ChangeAmount(int amountToChange)
+    {
+        inventoryAmount += amountToChange; 
     }
 }

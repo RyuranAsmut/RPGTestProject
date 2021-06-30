@@ -74,6 +74,12 @@ TextureImporter:
   - first:
       213: 21300046
     second: NPC_23
+  - first:
+      213: 8631269386824879595
+    second: NPC Characters_0
+  - first:
+      213: 6610015202153852503
+    second: NPC BobLoss
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -175,6 +181,27 @@ TextureImporter:
       bones: []
       spriteID: ffed8c54b9c6dff4d9b07e21ee13db9b
       internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC BobLoss
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 51
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75eef441ecd7bbb50800000000000000
+      internalID: 6610015202153852503
       vertices: []
       indices: 
       edges: []

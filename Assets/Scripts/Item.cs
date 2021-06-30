@@ -18,34 +18,10 @@ public class Item : ScriptableObject
     [Header("Item Values")]
     public int amountToChange;
     public bool affectHp, affectMP, affectStr;
-    public int inventoryAmount;
 
     [Header("Weapon/Armor Detais")]
     public int weaponStr;
     public int armorDef;
-
-    public void AddAmount(int amount)
-    {
-        inventoryAmount += amount;
-    }
-
-    public void RemoveAmount(int amount)
-    {
-        if (amount > inventoryAmount)
-        {
-            inventoryAmount = 0;
-        }
-        else
-        {
-            inventoryAmount -= amount;
-        }
-        
-    }
-
-    public void SetAmount(int amount)
-    {
-        inventoryAmount = amount;
-    }
 
     public void UseItem(int charToUse)
     {
@@ -71,7 +47,7 @@ public class Item : ScriptableObject
         {
             if(selectedChar.equippedArmor)
             {
-                GameManager.instance.AddItem(selectedChar.equippedArmor.itemId, 1);
+                GameManager.instance.ChangeItemAmount(selectedChar.equippedArmor.itemId, 1);
             }
                 selectedChar.equippedArmor = this;
                 selectedChar.armorDef = armorDef;
@@ -81,13 +57,13 @@ public class Item : ScriptableObject
         {
             if(selectedChar.equippedWeapon)
             {
-                GameManager.instance.AddItem(selectedChar.equippedWeapon.itemId, 1);
+                GameManager.instance.ChangeItemAmount(selectedChar.equippedWeapon.itemId, 1);
             }
                 selectedChar.equippedWeapon = this;
                 selectedChar.weaponPower = weaponStr;
         }
 
-        GameManager.instance.RemoveItem(itemId, 1);
+        GameManager.instance.ChangeItemAmount(itemId, -1);
     }
 
 }

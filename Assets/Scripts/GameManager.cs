@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public CharStats[] charStats;
 
     public Item[] items;
+    public InventorySlots[] inventory;
     public int currentGold;
 
     public bool menuOpen, dialogActive, transtionActive, shopOpen;
@@ -29,9 +30,9 @@ public class GameManager : MonoBehaviour
         GenerateEmptyInventory();
 
         //Starting items for test purposes;
-        AddItem(1, 5);
-        AddItem(4, 2);
-        AddItem(5, 3);
+        ChangeItemAmount(1, 5);
+        ChangeItemAmount(4, 2);
+        ChangeItemAmount(5, 3);
     }
 
     private void Update()
@@ -52,25 +53,21 @@ public class GameManager : MonoBehaviour
 
     private void GenerateEmptyInventory()
     {
-        for (int i = 0; i < items.Length; i++)
+        for (int i = 0; i < inventory.Length; i++)
         {
-            items[i].SetAmount(0);
+            inventory[i].SetAmount(0);
         }
     }
-    public void AddItem(int itemId, int amount)
+    public void ChangeItemAmount(int itemId, int amount)
     {
-        items[itemId - 1].AddAmount(amount);
-    }
-    public void RemoveItem(int itemId, int amount)
-    {
-        items[itemId - 1].RemoveAmount(amount);
+        inventory[itemId - 1].ChangeAmount(amount);
     }
 
     public void TestItemManagement()
     {
-        AddItem(2, 3);
+        ChangeItemAmount(2, 3);
         Debug.Log("Added " + items[2].itemName);
-        RemoveItem(4, 2);
+        ChangeItemAmount(4, -2);
         Debug.Log("Removed " + items[4].itemName);
         GameMenu.instance.UpdateItems();
     }

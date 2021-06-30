@@ -208,15 +208,15 @@ public class GameMenu : MonoBehaviour
     public void UpdateItems()
     {
         DestroyOldItemsButtons();
-        foreach (Item item in GameManager.instance.items)
+        foreach (InventorySlots slots in GameManager.instance.inventory)
         {
-            if (item.inventoryAmount > 0)
+            if (slots.GetAmount() > 0 && slots.inventoryItem != null)
             {
               GameObject newItemButton = Instantiate(invItemButton) as GameObject;
               ItemButton buttonInv = newItemButton.GetComponent<ItemButton>();
-              buttonInv.buttonItem = item;
-              buttonInv.buttonImage.sprite = item.itemSprite;
-              buttonInv.buttonText.text = item.inventoryAmount.ToString();
+              buttonInv.buttonItem = slots.inventoryItem;
+              buttonInv.buttonImage.sprite = slots.inventoryItem.itemSprite;
+              buttonInv.buttonText.text = slots.GetAmount().ToString();
               newItemButton.transform.SetParent(invItensHolder.transform, false);
             }
         }
@@ -276,7 +276,7 @@ public class GameMenu : MonoBehaviour
 
     public void DiscardConfirmAction()
     {
-        activeItem.inventoryAmount = 0;
+        GameManager.instance.inventory[activeItem.itemId - 1].SetAmount(0);
         UpdateItems();
         confirmationPanel.SetActive(false);
         activeItem = null;
