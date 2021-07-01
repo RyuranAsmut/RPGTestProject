@@ -6,13 +6,14 @@ using UnityEngine;
 public class ShopKeeper : MonoBehaviour
 {
     private bool canOpenShop;
-    public ShopSlots[] itemForSale;
+    public Item[] itemForSale;
+    public int[] amountForSale;
 
     private void Update() 
     {
         if(canOpenShop && Input.GetButtonDown("Fire1") && PlayerController.instance.canMove && !Shop.instance.shopMenu.activeInHierarchy)
         {
-            Shop.instance.SetItemSlots(itemForSale);
+            Shop.instance.GenerateShopSlots(itemForSale, amountForSale);
             Shop.instance.OpenShop();
         }    
     }

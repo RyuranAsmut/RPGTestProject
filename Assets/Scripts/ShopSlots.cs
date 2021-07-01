@@ -14,6 +14,11 @@ public class ShopSlots : MonoBehaviour
         shopItem = item;
     }
 
+    public void SetId(int id)
+    {
+        slotId = id;
+    }
+
     public void SetAmount(int amount)
     {
         shopAmount = amount;

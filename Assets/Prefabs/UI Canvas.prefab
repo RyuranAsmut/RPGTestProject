@@ -12943,7 +12943,7 @@ GameObject:
   - component: {fileID: 1756262895057581499}
   - component: {fileID: 8331284039383078909}
   m_Layer: 5
-  m_Name: Items
+  m_Name: BuyItemsHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13928,6 +13928,63 @@ MonoBehaviour:
   buyMenu: {fileID: 1772035883613100432}
   sellMenu: {fileID: 3691643646629546630}
   goldText: {fileID: 7225350136827906575}
+  shopSlotObj: {fileID: 7586485463581345117, guid: de8b51f8a9a3dab45a9f3ad367bde99e,
+    type: 3}
+  shopSlotsParent: {fileID: 8359786817719560268}
+  ItemsBt: {fileID: 966983101799142575, guid: ca091f90732ccb043b81cbc6efe5ee36, type: 3}
+  buyItemsBtHolder: {fileID: 4809598253775563572}
+  sellItemsBtHolder: {fileID: 8357609031038890910}
+  shopSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &5456459841737078353
 GameObject:
   m_ObjectHideFlags: 0
@@ -16854,6 +16911,7 @@ RectTransform:
   - {fileID: 8902450221125338307}
   - {fileID: 4552127789058411745}
   - {fileID: 4952015006771426433}
+  - {fileID: 4569712459852102306}
   m_Father: {fileID: 5184850835746561472}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17770,7 +17828,7 @@ GameObject:
   - component: {fileID: 1005370295287542164}
   - component: {fileID: 7219476213554090950}
   m_Layer: 5
-  m_Name: Items
+  m_Name: Sell ItemsHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17819,6 +17877,41 @@ MonoBehaviour:
   m_Spacing: {x: 10, y: 5}
   m_Constraint: 1
   m_ConstraintCount: 10
+--- !u!1 &8359786817719560268
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4569712459852102306}
+  m_Layer: 5
+  m_Name: ShopSlots
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4569712459852102306
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8359786817719560268}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2180503836301169209}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8485567002742543812
 GameObject:
   m_ObjectHideFlags: 0

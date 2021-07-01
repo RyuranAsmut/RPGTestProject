@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class Shop : MonoBehaviour
 {
@@ -9,8 +10,14 @@ public class Shop : MonoBehaviour
 
     public GameObject shopMenu, buyMenu, sellMenu;
     public TextMeshProUGUI goldText;
+    public ShopSlots shopSlotObj;
+    public GameObject shopSlotsParent;
 
-    private ShopSlots[] shopSlots;
+    public GameObject ItemsBt;
+    public GameObject buyItemsBtHolder;
+    public GameObject sellItemsBtHolder;
+
+    public ShopSlots[] shopSlots = new ShopSlots[50];
 
     private void Start() 
     {
@@ -43,16 +50,61 @@ public class Shop : MonoBehaviour
     {
         buyMenu.SetActive(true);
         sellMenu.SetActive(false);
+        DestroyOldShopButtons(buyItemsBtHolder.transform);
+        foreach (ShopSlots slots in shopSlots)
+        {
+            if (slots != null)
+            {
+              GameObject newItemButton = Instantiate(ItemsBt) as GameObject;
+              ItemButton buttonsBuy = newItemButton.GetComponent<ItemButton>();
+              buttonsBuy.buttonItem = slots.shopItem;
+              buttonsBuy.buttonImage.sprite = slots.shopItem.itemSprite;
+              buttonsBuy.buttonText.text = slots.GetAmount().ToString();
+              newItemButton.transform.SetParent(buyItemsBtHolder.transform, false);
+            }
+        }
+
     }
-     public void OpenSellMenu()
+
+    private void DestroyOldShopButtons(Transform buttonHolderTransform)
+    {
+        //To stop creating multiple copies of the same buttons
+        foreach (Transform buttons in buttonHolderTransform)
+        {
+            Destroy(buttons.gameObject);
+        }
+    }
+
+    public void OpenSellMenu()
     {
         buyMenu.SetActive(false);
         sellMenu.SetActive(true);
+        DestroyOldShopButtons(sellItemsBtHolder.transform);
+        foreach (InventorySlots slots in GameManager.instance.inventory)
+        {
+            if (slots.GetAmount() > 0 && slots.inventoryItem != null)
+            {
+              GameObject newItemButton = Instantiate(ItemsBt) as GameObject;
+              ItemButton buttonSell = newItemButton.GetComponent<ItemButton>();
+              buttonSell.buttonItem = slots.inventoryItem;
+              buttonSell.buttonImage.sprite = slots.inventoryItem.itemSprite;
+              buttonSell.buttonText.text = slots.GetAmount().ToString();
+              newItemButton.transform.SetParent(sellItemsBtHolder.transform, false);
+            }
+        }
     }
-
-    public void SetItemSlots(ShopSlots[] itemsForSale)
+    public void GenerateShopSlots(Item[] items, int[] amount)
     {
-        shopSlots = itemsForSale;
+        for(int i = 0; i < items.Length; i++)
+        {
+            //Dynamically generates new shop slots and set this class as the parent
+            ShopSlots newShopSlot = Instantiate(shopSlotObj) as ShopSlots;
+            shopSlots[i] = newShopSlot.GetComponent<ShopSlots>();
+            newShopSlot.transform.SetParent(shopSlotsParent.transform, false);
+            shopSlots[i].SetId(i + 1);
+            shopSlots[i].SetItem(items[i]);
+            shopSlots[i].SetAmount(amount[i]);
+        }
     }
 
 
