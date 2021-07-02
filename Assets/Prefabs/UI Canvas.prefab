@@ -13934,6 +13934,13 @@ MonoBehaviour:
   ItemsBt: {fileID: 966983101799142575, guid: ca091f90732ccb043b81cbc6efe5ee36, type: 3}
   buyItemsBtHolder: {fileID: 4809598253775563572}
   sellItemsBtHolder: {fileID: 8357609031038890910}
+  activeItem: {fileID: 0}
+  buyItemName: {fileID: 3421537681983892871}
+  buyItemInfo: {fileID: 678354301169081799}
+  buyItemValue: {fileID: 6923286888007721768}
+  sellName: {fileID: 6242994293054285939}
+  sellInfo: {fileID: 1370835349813582974}
+  sellValue: {fileID: 7344506839275670804}
   shopSlots:
   - {fileID: 0}
   - {fileID: 0}

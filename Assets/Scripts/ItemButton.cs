@@ -13,7 +13,22 @@ public class ItemButton : MonoBehaviour
 
     public void Press()
     {
-        GameMenu.instance.SelectItem(buttonItem);
+        if(GameMenu.instance.menu.activeInHierarchy)
+        {
+            GameMenu.instance.SelectItem(buttonItem);
+        }
+        if (Shop.instance.shopMenu.activeInHierarchy)
+        {
+            if (Shop.instance.buyMenu.activeInHierarchy)
+            {
+                Shop.instance.SelectItemToBuy(buttonItem);
+            }
+            if (Shop.instance.sellMenu.activeInHierarchy)
+            {
+                Shop.instance.SelectItemToSell(buttonItem);
+            }
+        }
+        
     }
 
     

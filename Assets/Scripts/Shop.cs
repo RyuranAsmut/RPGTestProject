@@ -17,6 +17,10 @@ public class Shop : MonoBehaviour
     public GameObject buyItemsBtHolder;
     public GameObject sellItemsBtHolder;
 
+    public Item activeItem;
+    public TextMeshProUGUI buyItemName, buyItemInfo, buyItemValue;
+    public TextMeshProUGUI sellName, sellInfo, sellValue;
+
     public ShopSlots[] shopSlots = new ShopSlots[50];
 
     private void Start() 
@@ -34,6 +38,7 @@ public class Shop : MonoBehaviour
 
     public void OpenShop()
     {
+        ClearActiveItem();
         shopMenu.SetActive(true);
         GameManager.instance.shopOpen = true;
         goldText.text = GameManager.instance.currentGold.ToString() + "G";
@@ -48,6 +53,7 @@ public class Shop : MonoBehaviour
 
     public void OpenBuyMenu()
     {
+        ClearActiveItem();
         buyMenu.SetActive(true);
         sellMenu.SetActive(false);
         DestroyOldShopButtons(buyItemsBtHolder.transform);
@@ -77,6 +83,7 @@ public class Shop : MonoBehaviour
 
     public void OpenSellMenu()
     {
+        ClearActiveItem();
         buyMenu.SetActive(false);
         sellMenu.SetActive(true);
         DestroyOldShopButtons(sellItemsBtHolder.transform);
@@ -104,6 +111,49 @@ public class Shop : MonoBehaviour
             shopSlots[i].SetId(i + 1);
             shopSlots[i].SetItem(items[i]);
             shopSlots[i].SetAmount(amount[i]);
+        }
+    }
+
+    public void SelectItemToBuy(Item selectedItem)
+    {
+        //Change the text in the info panel to match the selected item
+        activeItem = selectedItem;
+        buyItemName.text = selectedItem.itemName;
+        buyItemInfo.text = selectedItem.description;
+        buyItemValue.text = selectedItem.monetaryValue.ToString() + "G";
+
+    }
+     public void SelectItemToSell(Item selectedItem)
+    {
+        //Change the text in the info panel to match the selected item
+        activeItem = selectedItem;
+        sellName.text = selectedItem.itemName;
+        sellInfo.text = selectedItem.description;
+        sellValue.text = selectedItem.monetaryValue.ToString() + "G";
+
+    }
+
+    private void ClearActiveItem()
+    {
+        activeItem = null;
+        buyItemName.text = "";
+        buyItemInfo.text = "";
+        buyItemValue.text = "-G";
+        sellName.text = "";
+        sellInfo.text = "";
+        sellValue.text = "-G";
+
+    }
+
+    public void Buy()
+    {
+        if(activeItem)
+        {
+            if (GameManager.instance.currentGold >= activeItem.monetaryValue)
+            {
+                GameManager.instance.currentGold -= activeItem.monetaryValue;
+                //shopSlots[activeItem.itemId - 1];
+            }
         }
     }
 
