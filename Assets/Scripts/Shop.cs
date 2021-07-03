@@ -4,6 +4,15 @@ using UnityEngine;
 using TMPro;
 using System;
 
+
+    /*TODO
+    -Implement a buy/sell multiples/all items
+    -Implement a confirmation
+    -Implement a 'essential' tag to hide quest items from the shop page or just hide the sell button
+    -Make the color of the gold price to change to red if it's higher than the current amount of gold the player has 
+    */ 
+
+
 public class Shop : MonoBehaviour
 {
     public static Shop instance;
@@ -18,6 +27,7 @@ public class Shop : MonoBehaviour
     public GameObject sellItemsBtHolder;
 
     public Item activeItem;
+    public ShopSlots activeSlot;
     public TextMeshProUGUI buyItemName, buyItemInfo, buyItemValue;
     public TextMeshProUGUI sellName, sellInfo, sellValue;
 
@@ -30,10 +40,12 @@ public class Shop : MonoBehaviour
 
     private void Update() 
     {
-        if (Input.GetKeyDown(KeyCode.K) && !shopMenu.activeInHierarchy)
+        /* Gold debugging
+        if (Input.GetKeyDown(KeyCode.K))
         {
-            OpenShop();
-        }    
+            GameManager.instance.currentGold =+ 1000;
+        } 
+        */   
     }
 
     public void OpenShop()
@@ -41,8 +53,13 @@ public class Shop : MonoBehaviour
         ClearActiveItem();
         shopMenu.SetActive(true);
         GameManager.instance.shopOpen = true;
-        goldText.text = GameManager.instance.currentGold.ToString() + "G";
+        RefreshGoldDisplay();
         OpenBuyMenu();
+    }
+
+    private void RefreshGoldDisplay()
+    {
+        goldText.text = GameManager.instance.currentGold.ToString() + "G";
     }
 
     public void CloseShop()
@@ -56,20 +73,26 @@ public class Shop : MonoBehaviour
         ClearActiveItem();
         buyMenu.SetActive(true);
         sellMenu.SetActive(false);
+        UpdateBuySlots();
+
+    }
+
+    private void UpdateBuySlots()
+    {
         DestroyOldShopButtons(buyItemsBtHolder.transform);
         foreach (ShopSlots slots in shopSlots)
         {
-            if (slots != null)
+            if (slots != null && slots.GetAmount() > 0)
             {
-              GameObject newItemButton = Instantiate(ItemsBt) as GameObject;
-              ItemButton buttonsBuy = newItemButton.GetComponent<ItemButton>();
-              buttonsBuy.buttonItem = slots.shopItem;
-              buttonsBuy.buttonImage.sprite = slots.shopItem.itemSprite;
-              buttonsBuy.buttonText.text = slots.GetAmount().ToString();
-              newItemButton.transform.SetParent(buyItemsBtHolder.transform, false);
+                GameObject newItemButton = Instantiate(ItemsBt) as GameObject;
+                ItemButton buttonsBuy = newItemButton.GetComponent<ItemButton>();
+                buttonsBuy.slot = slots;
+                buttonsBuy.buttonItem = slots.shopItem;
+                buttonsBuy.buttonImage.sprite = slots.shopItem.itemSprite;
+                buttonsBuy.buttonText.text = slots.GetAmount().ToString();
+                newItemButton.transform.SetParent(buyItemsBtHolder.transform, false);
             }
         }
-
     }
 
     private void DestroyOldShopButtons(Transform buttonHolderTransform)
@@ -86,25 +109,31 @@ public class Shop : MonoBehaviour
         ClearActiveItem();
         buyMenu.SetActive(false);
         sellMenu.SetActive(true);
+        UpdateSellSlots();
+    }
+
+    private void UpdateSellSlots()
+    {
         DestroyOldShopButtons(sellItemsBtHolder.transform);
         foreach (InventorySlots slots in GameManager.instance.inventory)
         {
             if (slots.GetAmount() > 0 && slots.inventoryItem != null)
             {
-              GameObject newItemButton = Instantiate(ItemsBt) as GameObject;
-              ItemButton buttonSell = newItemButton.GetComponent<ItemButton>();
-              buttonSell.buttonItem = slots.inventoryItem;
-              buttonSell.buttonImage.sprite = slots.inventoryItem.itemSprite;
-              buttonSell.buttonText.text = slots.GetAmount().ToString();
-              newItemButton.transform.SetParent(sellItemsBtHolder.transform, false);
+                GameObject newItemButton = Instantiate(ItemsBt) as GameObject;
+                ItemButton buttonSell = newItemButton.GetComponent<ItemButton>();
+                buttonSell.buttonItem = slots.inventoryItem;
+                buttonSell.buttonImage.sprite = slots.inventoryItem.itemSprite;
+                buttonSell.buttonText.text = slots.GetAmount().ToString();
+                newItemButton.transform.SetParent(sellItemsBtHolder.transform, false);
             }
         }
     }
+
     public void GenerateShopSlots(Item[] items, int[] amount)
     {
         for(int i = 0; i < items.Length; i++)
         {
-            //Dynamically generates new shop slots and set this class as the parent
+            //Gnerates new shop slots using a shopkeeper
             ShopSlots newShopSlot = Instantiate(shopSlotObj) as ShopSlots;
             shopSlots[i] = newShopSlot.GetComponent<ShopSlots>();
             newShopSlot.transform.SetParent(shopSlotsParent.transform, false);
@@ -114,13 +143,14 @@ public class Shop : MonoBehaviour
         }
     }
 
-    public void SelectItemToBuy(Item selectedItem)
+    public void SelectItemToBuy(ShopSlots slot)
     {
-        //Change the text in the info panel to match the selected item
-        activeItem = selectedItem;
-        buyItemName.text = selectedItem.itemName;
-        buyItemInfo.text = selectedItem.description;
-        buyItemValue.text = selectedItem.monetaryValue.ToString() + "G";
+        //Change the text in the info panel to match the selected shop slot
+        activeItem = slot.shopItem;
+        activeSlot = slot;
+        buyItemName.text = slot.shopItem.itemName;
+        buyItemInfo.text = slot.shopItem.description;
+        buyItemValue.text = slot.shopItem.monetaryValue.ToString() + "G";
 
     }
      public void SelectItemToSell(Item selectedItem)
@@ -129,13 +159,14 @@ public class Shop : MonoBehaviour
         activeItem = selectedItem;
         sellName.text = selectedItem.itemName;
         sellInfo.text = selectedItem.description;
-        sellValue.text = selectedItem.monetaryValue.ToString() + "G";
+        sellValue.text = Mathf.FloorToInt(selectedItem.monetaryValue/2).ToString() + "G";
 
     }
 
     private void ClearActiveItem()
     {
         activeItem = null;
+        activeSlot = null;
         buyItemName.text = "";
         buyItemInfo.text = "";
         buyItemValue.text = "-G";
@@ -147,13 +178,34 @@ public class Shop : MonoBehaviour
 
     public void Buy()
     {
+        if (activeItem && GameManager.instance.currentGold >= activeItem.monetaryValue)
+        {
+            GameManager.instance.currentGold -= activeItem.monetaryValue;
+            RefreshGoldDisplay();
+            activeSlot.SetAmount(activeSlot.GetAmount() - 1);
+            GameManager.instance.ChangeItemAmount(activeItem.itemId, 1);
+            if (activeSlot.GetAmount() <= 0)
+            {
+                ClearActiveItem();
+                Destroy(activeSlot);
+            }
+            UpdateBuySlots();
+        }
+    }
+
+    public void Sell()
+    {
         if(activeItem)
         {
-            if (GameManager.instance.currentGold >= activeItem.monetaryValue)
+            //Making sure to sell the item for half the price and the value is a int
+            GameManager.instance.currentGold += Mathf.FloorToInt(activeItem.monetaryValue/2);
+            RefreshGoldDisplay();
+            GameManager.instance.ChangeItemAmount(activeItem.itemId, -1);
+            if (GameManager.instance.GetItemAmount(activeItem.itemId) <= 0)
             {
-                GameManager.instance.currentGold -= activeItem.monetaryValue;
-                //shopSlots[activeItem.itemId - 1];
+                ClearActiveItem();
             }
+            UpdateSellSlots(); 
         }
     }
 

@@ -38,4 +38,5 @@ public class ShopSlots : MonoBehaviour
     {
         shopAmount += amountToChange; 
     }
+    
 }

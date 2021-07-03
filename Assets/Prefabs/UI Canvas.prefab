@@ -8525,8 +8525,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 295, y: -0.00024414062}
-  m_SizeDelta: {x: -1216.9888, y: -63.79486}
+  m_AnchoredPosition: {x: 288.7, y: -0.00024414062}
+  m_SizeDelta: {x: -1204.4146, y: -63.79486}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8850052349090538214
 CanvasRenderer:
@@ -9255,7 +9255,7 @@ GameObject:
   - component: {fileID: 5657139266276605380}
   - component: {fileID: 2508834723851658940}
   m_Layer: 5
-  m_Name: PriceTxt
+  m_Name: SellValueTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9278,8 +9278,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 295, y: -0.00024414062}
-  m_SizeDelta: {x: -1216.9888, y: -63.79486}
+  m_AnchoredPosition: {x: 382, y: -0.00030517578}
+  m_SizeDelta: {x: -807.79834, y: -63.79486}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5657139266276605380
 CanvasRenderer:
@@ -9308,7 +9308,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Price:
+  m_text: 'Sell Value:
 
 '
   m_isRightToLeft: 0
@@ -9374,7 +9374,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -0.061035156, y: 0, z: 2.4211426, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -9876,7 +9876,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4552127789058411745
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10016,8 +10016,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 309.4, y: 0}
-  m_SizeDelta: {x: 290.8242, y: 0}
+  m_AnchoredPosition: {x: 230.2, y: 0}
+  m_SizeDelta: {x: 112.26883, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4779290722043728592
 CanvasRenderer:
@@ -13935,6 +13935,7 @@ MonoBehaviour:
   buyItemsBtHolder: {fileID: 4809598253775563572}
   sellItemsBtHolder: {fileID: 8357609031038890910}
   activeItem: {fileID: 0}
+  activeSlot: {fileID: 0}
   buyItemName: {fileID: 3421537681983892871}
   buyItemInfo: {fileID: 678354301169081799}
   buyItemValue: {fileID: 6923286888007721768}
@@ -14236,8 +14237,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 309.4, y: 0}
-  m_SizeDelta: {x: 290.8242, y: 0}
+  m_AnchoredPosition: {x: 153.4, y: 0}
+  m_SizeDelta: {x: -306.8636, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7193213563443948016
 CanvasRenderer:
@@ -14332,7 +14333,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -2.8873901, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -14456,7 +14457,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6894400307320316817}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8697572687231523004}
+        m_MethodName: Sell
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5671991595318044580
 GameObject:
   m_ObjectHideFlags: 0
@@ -16344,7 +16356,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3998218522210028409}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8697572687231523004}
+        m_MethodName: Buy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7358984270816577426
 GameObject:
   m_ObjectHideFlags: 0

@@ -63,6 +63,11 @@ public class GameManager : MonoBehaviour
         inventory[itemId - 1].ChangeAmount(amount);
     }
 
+    public int GetItemAmount(int itemId)
+    {
+        return inventory[itemId - 1].GetAmount();
+    }
+
     public void TestItemManagement()
     {
         ChangeItemAmount(2, 3);

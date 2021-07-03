@@ -9,6 +9,8 @@ public class ItemButton : MonoBehaviour
     public Item buttonItem;
     public Image buttonImage;
     public TextMeshProUGUI buttonText;
+    
+    public ShopSlots slot;
     public int buttonValue;
 
     public void Press()
@@ -21,7 +23,7 @@ public class ItemButton : MonoBehaviour
         {
             if (Shop.instance.buyMenu.activeInHierarchy)
             {
-                Shop.instance.SelectItemToBuy(buttonItem);
+                Shop.instance.SelectItemToBuy(slot);
             }
             if (Shop.instance.sellMenu.activeInHierarchy)
             {

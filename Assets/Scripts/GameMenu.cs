@@ -5,6 +5,10 @@ using TMPro;
 using UnityEngine.UI;
 using System;
 
+    /*TODO
+    -Implement a Equip menu or way for the player to unequip the current equipment without having to equip something else
+    -Try to make the Inventory better or at least more similar to the Shop Slots
+    */
 public class GameMenu : MonoBehaviour
 {
     //UI References
