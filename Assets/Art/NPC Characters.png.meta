@@ -76,7 +76,7 @@ TextureImporter:
     second: NPC_23
   - first:
       213: 8631269386824879595
-    second: NPC Characters_0
+    second: NPC Hope
   - first:
       213: 6610015202153852503
     second: NPC BobLoss
@@ -168,9 +168,9 @@ TextureImporter:
       name: NPC_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 51
-        width: 15
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -189,9 +189,9 @@ TextureImporter:
       name: NPC BobLoss
       rect:
         serializedVersion: 2
-        x: 17
+        x: 16
         y: 51
-        width: 14
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -202,6 +202,27 @@ TextureImporter:
       bones: []
       spriteID: 75eef441ecd7bbb50800000000000000
       internalID: 6610015202153852503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Hope
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 51
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bed8662e6cd68c770800000000000000
+      internalID: 8631269386824879595
       vertices: []
       indices: 
       edges: []

@@ -7,6 +7,7 @@ using System;
 
     /*TODO
     -Implement a buy/sell multiples/all items
+    -Implent sold items by the player to be bought
     -Implement a confirmation
     -Implement a 'essential' tag to hide quest items from the shop page or just hide the sell button
     -Make the color of the gold price to change to red if it's higher than the current amount of gold the player has 

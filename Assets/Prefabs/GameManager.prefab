@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7523707919620108706}
   - component: {fileID: 7523707919620108705}
+  - component: {fileID: -4321570229694423260}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -104,6 +105,23 @@ MonoBehaviour:
   dialogActive: 0
   transtionActive: 0
   shopOpen: 0
+--- !u!114 &-4321570229694423260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7523707919620108704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cc152cf093023d47becc2d8617834c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest:
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 1d552eca577842f4f971cacdfb925a88, type: 2}
+  - {fileID: 11400000, guid: ca60b54008ad3c34286cfb5757adb5f3, type: 2}
+  - {fileID: 11400000, guid: c06f707d74083a54c9fecfeda3173563, type: 2}
 --- !u!1001 &3364634191172196988
 PrefabInstance:
   m_ObjectHideFlags: 0
