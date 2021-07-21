@@ -5,8 +5,10 @@ using UnityEngine;
 public class DialogueActivator : MonoBehaviour
 {
     public bool namedNpc = true;
-    public string[] lines;
+    public Quest quest;
+    [TextArea(8,12)]public string[] lines;
     private bool canActivate;
+
 
 
     private void Update() 
@@ -14,6 +16,8 @@ public class DialogueActivator : MonoBehaviour
         if (canActivate && Input.GetButtonDown("Jump") && !DialogueController.intance.dialogBox.activeInHierarchy)
         {
             DialogueController.intance.ShowDialog(lines, namedNpc);
+            DialogueController.intance.QuestSetter(quest);
+
         }    
     }
 

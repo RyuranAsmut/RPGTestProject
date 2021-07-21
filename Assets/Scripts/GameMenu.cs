@@ -9,6 +9,7 @@ using System;
     -Implement a Equip menu or way for the player to unequip the current equipment without having to equip something else
     -Try to make the Inventory better or at least more similar to the Shop Slots
     -Manage the inventory limit: either make it fixed or add a scrollbar to navigate it
+    -Implement a Questj Journal for the player to check on quests
     
     */
 public class GameMenu : MonoBehaviour

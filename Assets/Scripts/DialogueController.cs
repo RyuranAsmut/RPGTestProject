@@ -18,6 +18,8 @@ public class DialogueController : MonoBehaviour
     private bool dialogStart;
     private bool isRunning;
     private string restOfSentence;
+
+    private Quest currentQuest;
     
     private void Start() 
     {
@@ -39,6 +41,10 @@ public class DialogueController : MonoBehaviour
                 {
                     dialogBox.SetActive(false);
                     GameManager.instance.dialogActive = false;
+                    if (currentQuest)
+                    {
+                        QuestHandler();
+                    }
                 }
                 else
                 {
@@ -78,6 +84,24 @@ public class DialogueController : MonoBehaviour
         dialogStart = true;
         GameManager.instance.dialogActive = true;
         nameBox.SetActive(namedNpc);
+    }
+
+    public void QuestSetter(Quest quest)
+    {
+        if (quest)
+        {
+            currentQuest = quest;
+        }
+        else
+        {
+            currentQuest = null;
+        }
+
+    }
+
+    public void QuestHandler()
+    {
+        QuestManager.instance.AdvanceQuestStatus(currentQuest);
     }
 
 }

@@ -15,6 +15,8 @@ public class Quest : ScriptableObject
     public bool isStarted;
     public bool isCompleted;
 
+    public bool isDelivered; //If it requires you to talk to a NPC to finish the quest
+
     [Header("Quest Reward")]
 
     public int expReward;
@@ -29,9 +31,13 @@ public class Quest : ScriptableObject
         return isStarted;
     }
 
-    public void QuestStart()
+    public void StartQuest()
     {
-        isStarted = true;
+        if (!isDelivered && !isCompleted)
+        {
+            isStarted = true;
+        }
+
     }
 
 
@@ -40,17 +46,29 @@ public class Quest : ScriptableObject
         return isCompleted;
     }
 
-    public void ChangeQuestStatus()
+    public void CompleteQuest()
     {
-        if(!isCompleted)
+        if (isStarted && !isDelivered)
         {
-            isCompleted = true;
             isStarted = false;
-        } 
-        else if (isCompleted)
+            isCompleted = true;
+        }
+
+    }
+
+    public bool QuestDeliveryStatus()
+    {
+        return isDelivered;
+    }
+
+    public void DeliverQuest()
+    {
+        if (isCompleted)
         {
             isCompleted = false;
+            isDelivered = true;
         }
+
     }
 
 }

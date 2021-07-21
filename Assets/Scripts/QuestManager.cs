@@ -5,6 +5,8 @@ using UnityEngine;
 public class QuestManager : MonoBehaviour
 {
 
+    //Barely functional, need A LOT of improvements.
+
     public Quest[] quest;
 
 
@@ -15,14 +17,40 @@ public class QuestManager : MonoBehaviour
         instance = this;    
     }
 
-    //Not sure yet if any of the 2 bellow functions are necessary
+    //Not sure yet if any of the bellow function is necessary
     public bool CheckForCompletion(Quest questToCheck)
     {
-        return questToCheck.QuestCompletionStatus();
+        if (questToCheck.QuestStartedStatus() == true)
+        {
+            return questToCheck.QuestStartedStatus(); 
+        } 
+        else if (questToCheck.QuestCompletionStatus() == true)
+        {
+            return questToCheck.QuestCompletionStatus();
+        }
+        else if (questToCheck.QuestDeliveryStatus() == true)
+        {
+            return questToCheck.QuestDeliveryStatus();
+        }
+        else 
+        {
+            return false;
+        }
     }
 
-    public void ChangeCompletionStatus(Quest questToChange)
+    public void AdvanceQuestStatus(Quest questToChange)
     {
-        questToChange.ChangeQuestStatus();
+        if (questToChange.QuestStartedStatus() == false)
+        {
+            questToChange.StartQuest();
+        } 
+        else if (questToChange.QuestCompletionStatus() == false)
+        {
+            questToChange.CompleteQuest();
+        }
+        else if (questToChange.QuestDeliveryStatus() == false)
+        {
+            questToChange.DeliverQuest();
+        }
     }
 }
