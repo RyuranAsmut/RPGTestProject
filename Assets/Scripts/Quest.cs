@@ -10,19 +10,14 @@ public class Quest : ScriptableObject
     public int questId;
     public string questName;
 
-    [TextArea(10,14)]public string questDescription;
-
+    [TextArea(10, 14)] public string questDescription;
     public bool isStarted;
     public bool isCompleted;
-
     public bool isDelivered; //If it requires you to talk to a NPC to finish the quest
 
     [Header("Quest Reward")]
-
     public int expReward;
-
     public int moneyReward;
-
     public Item[] itemReward;
 
 
@@ -37,7 +32,6 @@ public class Quest : ScriptableObject
         {
             isStarted = true;
         }
-
     }
 
 
@@ -48,12 +42,8 @@ public class Quest : ScriptableObject
 
     public void CompleteQuest()
     {
-        if (isStarted && !isDelivered)
-        {
-            isStarted = false;
-            isCompleted = true;
-        }
-
+        isStarted = true;
+        isCompleted = true;
     }
 
     public bool QuestDeliveryStatus()
@@ -63,12 +53,16 @@ public class Quest : ScriptableObject
 
     public void DeliverQuest()
     {
-        if (isCompleted)
-        {
-            isCompleted = false;
-            isDelivered = true;
-        }
+        isStarted = true;
+        isCompleted = true;
+        isDelivered = true;
+    }
 
+    public void ResetQuest()
+    {
+        isStarted = false;
+        isCompleted = false;
+        isDelivered = false;
     }
 
 }

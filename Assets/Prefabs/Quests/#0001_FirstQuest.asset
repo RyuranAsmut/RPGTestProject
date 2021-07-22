@@ -17,6 +17,7 @@ MonoBehaviour:
   questDescription: Test Quest.
   isStarted: 0
   isCompleted: 0
+  isDelivered: 0
   expReward: 1000
   moneyReward: 100
   itemReward:

@@ -15,9 +15,9 @@ MonoBehaviour:
   questId: 3
   questName: Find Hope
   questDescription: Search for the missing little girl named Hope.
-  isStarted: 0
-  isCompleted: 0
-  isDelivered: 0
+  isStarted: 1
+  isCompleted: 1
+  isDelivered: 1
   expReward: 2500
   moneyReward: 200
   itemReward:

@@ -20,8 +20,8 @@ public class DialogueController : MonoBehaviour
     private string restOfSentence;
 
     private Quest currentQuest;
-    
-    private void Start() 
+
+    private void Start()
     {
         intance = this;
     }
@@ -61,7 +61,7 @@ public class DialogueController : MonoBehaviour
 
     private void CheckIfName()
     {
-        if (dialog[currentLine].StartsWith("n-" ))
+        if (dialog[currentLine].StartsWith("n-"))
         {
             string sentence = dialog[currentLine];
             int firstSpace = sentence.IndexOf(' ');

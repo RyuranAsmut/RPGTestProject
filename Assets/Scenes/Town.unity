@@ -8491,7 +8491,7 @@ MonoBehaviour:
   namedNpc: 1
   quest: {fileID: 0}
   lines:
-  - n-Hope You are really good at find and seek, mister.
+  - n-Hope You are really good at find and seek mister.
 --- !u!212 &310213606
 SpriteRenderer:
   m_ObjectHideFlags: 0
