@@ -13,10 +13,10 @@ public class CharStats : MonoBehaviour
     public int baseExp = 1000;
 
     public int currentHP;
-    public int maxHP = 1000;
+    public int maxHP = 1000; //per lvl
     public int currentMP;
-    public int maxMP = 100;
-    public int mpBonus;
+    public int maxMP = 100; //per lvl
+    public int mpBonus;  //to lvl up
     public int power;
     public int defense;
     public int weaponPower;

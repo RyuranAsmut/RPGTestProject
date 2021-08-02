@@ -331,4 +331,16 @@ public class GameMenu : MonoBehaviour
 
     }
 
+    public void SaveGame()
+    {
+        GameManager.instance.SaveData();
+        QuestManager.instance.SaveQuestData();
+    }
+
+    public void LoadGame()
+    {
+        GameManager.instance.LoadData();
+        QuestManager.instance.LoadQuestData();
+    }
+
 }

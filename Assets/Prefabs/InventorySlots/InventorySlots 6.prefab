@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6868704685091254362}
   - component: {fileID: 6868704685091254363}
   m_Layer: 0
-  m_Name: InventorySlots
+  m_Name: InventorySlots 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,5 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb46f6ff143b054cb69d7aa6e8835b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 0}
-  amount: 0
+  inventoryItem: {fileID: 11400000, guid: dbacce38fdc507e4b8800a993e6d925f, type: 2}
+  inventoryAmount: 0
