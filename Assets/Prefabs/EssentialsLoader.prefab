@@ -47,3 +47,5 @@ MonoBehaviour:
   canvas: {fileID: 5184850835746561477, guid: 7d970ba32ded1024c953c385523f19d7, type: 3}
   gameManager: {fileID: 7523707919620108704, guid: 4b3dfda3c8957764e9b0f350ccd09c96,
     type: 3}
+  audioManager: {fileID: 5121240076161287939, guid: b2b48710a50ae8c4bb705d9464d6aa9f,
+    type: 3}

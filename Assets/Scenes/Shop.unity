@@ -1703,6 +1703,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2462595245660800932, guid: 988528db15a161d4ea0fd895c21ab035,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837418266054497621, guid: 988528db15a161d4ea0fd895c21ab035,
+        type: 3}
+      propertyPath: sceneToLoad
+      value: Town
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837418266054497621, guid: 988528db15a161d4ea0fd895c21ab035,
+        type: 3}
+      propertyPath: transitionName
+      value: Shop1
+      objectReference: {fileID: 0}
     - target: {fileID: 2837418266054497622, guid: 988528db15a161d4ea0fd895c21ab035,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1786,7 +1801,12 @@ PrefabInstance:
     - target: {fileID: 2837418266054497624, guid: 988528db15a161d4ea0fd895c21ab035,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7990039517502602164, guid: 988528db15a161d4ea0fd895c21ab035,
+        type: 3}
+      propertyPath: transitionName
+      value: ShopOut
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 988528db15a161d4ea0fd895c21ab035, type: 3}
@@ -1797,6 +1817,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1443955063, guid: 4d187c0d902afe640a01ad17969ab59a, type: 3}
+      propertyPath: musicToPlay
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1714198032911379498, guid: 4d187c0d902afe640a01ad17969ab59a,
         type: 3}
       propertyPath: m_LocalPosition.x
