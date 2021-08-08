@@ -51,14 +51,7 @@ MonoBehaviour:
   - {fileID: 7523707920418431664}
   - {fileID: 3364634189924525221}
   - {fileID: 3364634191247135018}
-  items:
-  - {fileID: 11400000, guid: 4b2d3252eeb88a241abb623de5d79460, type: 2}
-  - {fileID: 11400000, guid: e24e21bac4c9141468f34078bc30731c, type: 2}
-  - {fileID: 11400000, guid: 6536b8b9016e8ea4bacfc3bd18420271, type: 2}
-  - {fileID: 11400000, guid: 8a58641fad86dbd4799cc4978bc365ae, type: 2}
-  - {fileID: 11400000, guid: 8f5328207443a994fb06ff766766876a, type: 2}
-  - {fileID: 11400000, guid: dbacce38fdc507e4b8800a993e6d925f, type: 2}
-  - {fileID: 11400000, guid: 435697835c9c804449fe058b3b38e221, type: 2}
+  item: []
   inventory:
   - {fileID: 6868704685091254363, guid: f87e6c46bede5ae4bae4a481cd379a05, type: 3}
   - {fileID: 6868704685091254363, guid: 2b726c1ee9b014649a20b9483b47af1c, type: 3}
@@ -366,7 +359,7 @@ PrefabInstance:
     - target: {fileID: 5104830751634274508, guid: 935a1077438007b408ea84a2060b008f,
         type: 3}
       propertyPath: charName
-      value: Ted
+      value: Tom
       objectReference: {fileID: 0}
     - target: {fileID: 5104830751634274508, guid: 935a1077438007b408ea84a2060b008f,
         type: 3}

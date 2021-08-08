@@ -57,7 +57,7 @@ public class AudioManager : MonoBehaviour
 
     }
 
-    private void StopBGM()
+    public void StopBGM()
     {
         foreach (AudioSource bgm in bgmArray)
         {

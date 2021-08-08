@@ -2409,8 +2409,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 135.19962, y: -300.8763}
-  m_SizeDelta: {x: 270.39923, y: 104.350525}
+  m_AnchoredPosition: {x: 150.53247, y: -308.9117}
+  m_SizeDelta: {x: 301.06494, y: 104.963806}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &690724076
 CanvasRenderer:
@@ -4085,8 +4085,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 135.19962, y: -549.5774}
-  m_SizeDelta: {x: 270.39923, y: 104.350525}
+  m_AnchoredPosition: {x: 150.53247, y: -565.34155}
+  m_SizeDelta: {x: 301.06494, y: 104.963806}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1260399654
 CanvasRenderer:
@@ -5409,8 +5409,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 135.19962, y: -52.175262}
-  m_SizeDelta: {x: 270.39923, y: 104.350525}
+  m_AnchoredPosition: {x: 150.53247, y: -52.481903}
+  m_SizeDelta: {x: 301.06494, y: 104.963806}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1684527618
 CanvasRenderer:
@@ -5733,8 +5733,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 135.19962, y: -176.52579}
-  m_SizeDelta: {x: 270.39923, y: 104.350525}
+  m_AnchoredPosition: {x: 150.53247, y: -180.69681}
+  m_SizeDelta: {x: 301.06494, y: 104.963806}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1743070783
 CanvasRenderer:
@@ -7166,8 +7166,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 135.19962, y: -425.22684}
-  m_SizeDelta: {x: 270.39923, y: 104.350525}
+  m_AnchoredPosition: {x: 150.53247, y: -437.12662}
+  m_SizeDelta: {x: 301.06494, y: 104.963806}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2062370407
 CanvasRenderer:
@@ -10486,7 +10486,7 @@ GameObject:
   - component: {fileID: 1776253839839725359}
   - component: {fileID: 6982161168795122591}
   m_Layer: 5
-  m_Name: QuitText
+  m_Name: MainMenuText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10538,7 +10538,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Quit
+  m_text: Main Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 70d0369f14347a647a0fe5be2334dd12, type: 2}
   m_sharedMaterial: {fileID: 2565643512526253518, guid: 70d0369f14347a647a0fe5be2334dd12,
@@ -10566,10 +10566,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 29.96
+  m_fontSize: 69
+  m_fontSizeBase: 69
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -12196,7 +12196,7 @@ GameObject:
   - component: {fileID: 5167921680678471361}
   - component: {fileID: 8260313075287644323}
   m_Layer: 5
-  m_Name: QuitButton
+  m_Name: MainMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12219,8 +12219,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 135.19962, y: -673.92786}
-  m_SizeDelta: {x: 270.39923, y: 104.350525}
+  m_AnchoredPosition: {x: 150.53247, y: -693.5564}
+  m_SizeDelta: {x: 301.06494, y: 104.963806}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2010104058955066015
 CanvasRenderer:
@@ -12304,6 +12304,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4672047207102043843}
         m_MethodName: PlayUISFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4672047207102043843}
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15482,8 +15493,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -733.8, y: 162.41}
-  m_SizeDelta: {x: 258.46173, y: 602.53235}
+  m_AnchoredPosition: {x: -708.6, y: 89}
+  m_SizeDelta: {x: 308.841, y: 749.2894}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7099317331381485930
 MonoBehaviour:

@@ -4,14 +4,15 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
 
-    /*TODO
-    -Implement a Equip menu or way for the player to unequip the current equipment without having to equip something else
-    -Try to make the Inventory better or at least more similar to the Shop Slots
-    -Manage the inventory limit: either make it fixed or add a scrollbar to navigate it
-    -Implement a Questj Journal for the player to check on quests
-    
-    */
+/*TODO
+-Implement a Equip menu or way for the player to unequip the current equipment without having to equip something else
+-Try to make the Inventory better or at least more similar to the Shop Slots
+-Manage the inventory limit: either make it fixed or add a scrollbar to navigate it
+-Implement a Questj Journal for the player to check on quests
+
+*/
 public class GameMenu : MonoBehaviour
 {
     //UI References
@@ -341,8 +342,17 @@ public class GameMenu : MonoBehaviour
 
     public void LoadGame()
     {
-        GameManager.instance.LoadData();
-        QuestManager.instance.LoadQuestData();
+        SceneManager.LoadScene("LoadingScene");
+    }
+
+    public void QuitGame()
+    {
+        SceneManager.LoadScene("MainMenu");
+
+        Destroy(GameManager.instance.gameObject);
+        Destroy(PlayerController.instance.gameObject);
+        Destroy(AudioManager.instance.gameObject);
+        Destroy(gameObject);
     }
 
     public void PlayUISFX()
