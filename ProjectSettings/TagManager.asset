@@ -47,3 +47,9 @@ TagManager:
   - name: Player
     uniqueID: 1838594619
     locked: 0
+  - name: Battleground
+    uniqueID: 1766358787
+    locked: 0
+  - name: Battlers
+    uniqueID: 2703894961
+    locked: 0
