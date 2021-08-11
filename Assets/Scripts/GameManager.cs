@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public InventorySlots[] inventory;
     public int currentGold;
 
-    public bool menuOpen, dialogActive, transtionActive, shopOpen;
+    public bool menuOpen, dialogActive, transtionActive, shopOpen, battleActive;
 
 
     private void Start() 
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     }
     private void CheckForPlayerMovement() 
     {
-        if (menuOpen || dialogActive || transtionActive || shopOpen)
+        if (menuOpen || dialogActive || transtionActive || shopOpen || battleActive)
         {
             PlayerController.instance.canMove = false;
         }
