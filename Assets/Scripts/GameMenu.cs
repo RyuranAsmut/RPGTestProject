@@ -10,7 +10,8 @@ using UnityEngine.SceneManagement;
 -Implement a Equip menu or way for the player to unequip the current equipment without having to equip something else
 -Try to make the Inventory better or at least more similar to the Shop Slots
 -Manage the inventory limit: either make it fixed or add a scrollbar to navigate it
--Implement a Questj Journal for the player to check on quests
+-Implement a Quest Journal for the player to check on quests
+-Implement a way to vizualize every character in the party better(maybe a scrollabe menu)
 
 */
 public class GameMenu : MonoBehaviour
@@ -18,7 +19,7 @@ public class GameMenu : MonoBehaviour
     //UI References
     public GameObject menu;
     public GameObject[] windows;
-    private CharStats[] playerStats;
+    private CharStats[] charStats;
 
     public TextMeshProUGUI[] nameText, hpText, mpText, levelText, expText;
     public Slider[] hpSlider, mpSlider, expSlider;
@@ -99,28 +100,28 @@ public class GameMenu : MonoBehaviour
 
     public void UpdateMainStats()
     {
-        playerStats = GameManager.instance.charStats;
+        charStats = GameManager.instance.charStats;
         goldAmount.text = GameManager.instance.currentGold.ToString() + "G";
 
-        for(int i = 0; i < playerStats.Length; i++)
+        for(int i = 0; i < charStats.Length; i++)
         {
-            //If the character is active in the hierarchy
-            if(playerStats[i].gameObject.activeInHierarchy)
+            //If the character is active in the party
+            if(charStats[i].isActiveInParty)
             {
                 //Show and update each stats in the array
                 charStatsHolder[i].SetActive(true);
-                nameText[i].text = playerStats[i].charName;
-                hpText[i].text = "HP: " + playerStats[i].currentHP + "/" + playerStats[i].maxHP;
-                mpText[i].text = "MP: " + playerStats[i].currentMP + "/" + playerStats[i].maxMP;
-                levelText[i].text = "Lvl: " + playerStats[i].currentLevel;
-                expText[i].text = "" + playerStats[i].currentExp + "/" + playerStats[i].expToLevelUp[playerStats[i].currentLevel];
-                hpSlider[i].maxValue = playerStats[i].maxHP;
-                hpSlider[i].value = playerStats[i].currentHP;
-                mpSlider[i].maxValue = playerStats[i].maxMP;
-                mpSlider[i].value = playerStats[i].currentMP;
-                expSlider[i].maxValue = playerStats[i].expToLevelUp[playerStats[i].currentLevel];
-                expSlider[i].value = playerStats[i].currentExp;
-                charImage[i].sprite = playerStats[i].charImage;
+                nameText[i].text = charStats[i].charName;
+                hpText[i].text = "HP: " + charStats[i].currentHP + "/" + charStats[i].maxHP;
+                mpText[i].text = "MP: " + charStats[i].currentMP + "/" + charStats[i].maxMP;
+                levelText[i].text = "Lvl: " + charStats[i].currentLevel;
+                expText[i].text = "" + charStats[i].currentExp + "/" + charStats[i].expToLevelUp[charStats[i].currentLevel];
+                hpSlider[i].maxValue = charStats[i].maxHP;
+                hpSlider[i].value = charStats[i].currentHP;
+                mpSlider[i].maxValue = charStats[i].maxMP;
+                mpSlider[i].value = charStats[i].currentMP;
+                expSlider[i].maxValue = charStats[i].expToLevelUp[charStats[i].currentLevel];
+                expSlider[i].value = charStats[i].currentExp;
+                charImage[i].sprite = charStats[i].charImage;
             }
             else
             {
@@ -176,33 +177,33 @@ public class GameMenu : MonoBehaviour
         CharStats(0);
         for (int i = 0; i < statusButtons.Length; i++)
         {
-            statusButtons[i].SetActive(playerStats[i].gameObject.activeInHierarchy);
-            statusButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = playerStats[i].charName;
+            statusButtons[i].SetActive(charStats[i].isActiveInParty);
+            statusButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = charStats[i].charName;
         }
     }
 
     public void CharStats(int selected)
     {
-        charName.text = playerStats[selected].charName;
-        charLvl.text = playerStats[selected].currentLevel.ToString();
-        charHp.text = "" + playerStats[selected].currentHP + "/" + playerStats[selected].maxHP;
-        charMp.text = "" + playerStats[selected].currentMP + "/" + playerStats[selected].maxMP;
-        charAtk.text = playerStats[selected].power.ToString();
-        charDef.text = playerStats[selected].power.ToString();
-        if(playerStats[selected].equippedWeapon)
+        charName.text = charStats[selected].charName;
+        charLvl.text = charStats[selected].currentLevel.ToString();
+        charHp.text = "" + charStats[selected].currentHP + "/" + charStats[selected].maxHP;
+        charMp.text = "" + charStats[selected].currentMP + "/" + charStats[selected].maxMP;
+        charAtk.text = charStats[selected].power.ToString();
+        charDef.text = charStats[selected].power.ToString();
+        if(charStats[selected].equippedWeapon)
         {
-            charWp.text = playerStats[selected].equippedWeapon.itemName;
-            charWpPwr.text = playerStats[selected].weaponPower.ToString(); 
+            charWp.text = charStats[selected].equippedWeapon.itemName;
+            charWpPwr.text = charStats[selected].weaponPower.ToString(); 
         }
         else
         {
             charWp.text = "None";
             charWpPwr.text = "0";
         }
-        if(playerStats[selected].equippedArmor)
+        if(charStats[selected].equippedArmor)
         {
-            charArm.text = playerStats[selected].equippedArmor.itemName;
-            charArmPwr.text = playerStats[selected].armorDef.ToString(); 
+            charArm.text = charStats[selected].equippedArmor.itemName;
+            charArmPwr.text = charStats[selected].armorDef.ToString(); 
         }
         else
         {
@@ -210,8 +211,8 @@ public class GameMenu : MonoBehaviour
             charArmPwr.text = "0";
         }
         //To show the exact value to the next level
-        charExp.text = (playerStats[selected].expToLevelUp[playerStats[selected].currentLevel] - playerStats[selected].currentExp).ToString();
-        charStatusImage.sprite = playerStats[selected].charImage;
+        charExp.text = (charStats[selected].expToLevelUp[charStats[selected].currentLevel] - charStats[selected].currentExp).ToString();
+        charStatusImage.sprite = charStats[selected].charImage;
 
     }
 

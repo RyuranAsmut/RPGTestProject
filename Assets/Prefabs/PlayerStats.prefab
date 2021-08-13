@@ -51,14 +51,15 @@ MonoBehaviour:
   baseExp: 1000
   currentHP: 800
   maxHP: 1000
-  currentMP: 0
+  currentMP: 50
   maxMP: 100
   mpBonus: 10
   power: 10
   defense: 7
   weaponPower: 0
   armorDef: 0
-  equippedWeapon: None
-  equippedArmor: None
+  equippedWeapon: {fileID: 0}
+  equippedArmor: {fileID: 0}
   charImage: {fileID: 7152930139536384079, guid: a4783c61aa946864f98cf9dcb8e5a7d3,
     type: 3}
+  isActiveInParty: 1

@@ -25,6 +25,7 @@ public class CharStats : MonoBehaviour
     public Item equippedArmor;
 
     public Sprite charImage;
+    public bool isActiveInParty;
 
 
     private void Start()

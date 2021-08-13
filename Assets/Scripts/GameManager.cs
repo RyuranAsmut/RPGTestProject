@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
         //Save Char Info
         for (int i = 0; i < charStats.Length; i++)
         {
-            if(charStats[i].gameObject.activeInHierarchy)
+            if(charStats[i].isActiveInParty)
             {
                 PlayerPrefs.SetInt("Active_Status_" + charStats[i].charName, 1);
             } 
@@ -161,11 +161,11 @@ public class GameManager : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("Active_Status_" + charStats[i].charName) == 0)
             {
-                charStats[i].gameObject.SetActive(false);
+                charStats[i].isActiveInParty = false;
             }
             else
             {
-                charStats[i].gameObject.SetActive(true);
+                charStats[i].isActiveInParty = true;
             }
 
             charStats[i].currentLevel = PlayerPrefs.GetInt("Char_" + charStats[i].charName + "_Level");

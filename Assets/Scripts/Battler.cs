@@ -5,6 +5,7 @@ using UnityEngine;
 public class Battler : MonoBehaviour
 {
     public string battlerName;
+    public Sprite battlerIcon;
     public bool isPlayer;
     public bool isDead;
     public int currentHp, maxHp, currentMP, maxMP, power, defense, wpnPwr, armDef;
