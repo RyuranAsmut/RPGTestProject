@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*TODO
+-Implement Agility/Speed stat
+*/
+
 public class Battler : MonoBehaviour
 {
     public string battlerName;

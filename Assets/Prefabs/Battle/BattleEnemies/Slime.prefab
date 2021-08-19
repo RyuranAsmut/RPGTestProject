@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battlerName: Slime
+  battlerIcon: {fileID: 0}
   isPlayer: 0
   isDead: 0
   currentHp: 50
@@ -105,4 +106,20 @@ MonoBehaviour:
   defense: 1
   wpnPwr: 0
   armDef: 0
-  moves: []
+  moves:
+  - isPhysical: 1
+    isMagical: 0
+    isHealing: 0
+    isBuff: 0
+    isDebuff: 0
+    moveCost: 0
+    moveName: Plasmatic Slime
+    description: 
+    moveIcon: {fileID: 0}
+    visualEffect: {fileID: 1404311998682487544, guid: dce8d29213c181040a48a261aae8718a,
+      type: 3}
+    modifier: 50
+    affectHp: 1
+    affectMP: 0
+    affectStr: 0
+    affectDef: 0

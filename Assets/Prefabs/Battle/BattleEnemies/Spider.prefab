@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4221537812882758860}
   - component: {fileID: 7558171257874308413}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Spider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battlerName: Spider
+  battlerIcon: {fileID: 0}
   isPlayer: 0
   isDead: 0
   currentHp: 100
@@ -105,4 +106,36 @@ MonoBehaviour:
   defense: 3
   wpnPwr: 0
   armDef: 0
-  moves: []
+  moves:
+  - isPhysical: 1
+    isMagical: 0
+    isHealing: 0
+    isBuff: 0
+    isDebuff: 0
+    moveCost: 0
+    moveName: Venom Bite
+    description: A venomous bite
+    moveIcon: {fileID: 0}
+    visualEffect: {fileID: 1404311998682487544, guid: dce8d29213c181040a48a261aae8718a,
+      type: 3}
+    modifier: 70
+    affectHp: 1
+    affectMP: 0
+    affectStr: 0
+    affectDef: 0
+  - isPhysical: 0
+    isMagical: 1
+    isHealing: 0
+    isBuff: 0
+    isDebuff: 0
+    moveCost: 0
+    moveName: Ice Bite
+    description: 
+    moveIcon: {fileID: 0}
+    visualEffect: {fileID: 1528198064608448314, guid: 4ebf131251a343f42b995fba292a7b42,
+      type: 3}
+    modifier: 90
+    affectHp: 1
+    affectMP: 0
+    affectStr: 0
+    affectDef: 0

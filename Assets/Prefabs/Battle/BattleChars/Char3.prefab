@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1175687898781488675}
   - component: {fileID: 236655282154497319}
   m_Layer: 0
-  m_Name: Char2
+  m_Name: Char3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,9 +95,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battlerName: Char2
-  isPlayer: 0
+  battlerIcon: {fileID: 0}
+  isPlayer: 1
   isDead: 0
-  currentHp: 0
+  currentHp: 100
   maxHp: 0
   currentMP: 0
   maxMP: 0

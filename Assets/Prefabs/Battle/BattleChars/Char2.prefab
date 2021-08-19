@@ -95,9 +95,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battlerName: Char2
-  isPlayer: 0
+  battlerIcon: {fileID: 0}
+  isPlayer: 1
   isDead: 0
-  currentHp: 0
+  currentHp: 100
   maxHp: 0
   currentMP: 0
   maxMP: 0

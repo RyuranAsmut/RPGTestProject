@@ -96,9 +96,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battlerName: Tim
-  isPlayer: 0
+  battlerIcon: {fileID: 0}
+  isPlayer: 1
   isDead: 0
-  currentHp: 0
+  currentHp: 100
   maxHp: 0
   currentMP: 0
   maxMP: 0
@@ -106,4 +107,35 @@ MonoBehaviour:
   defense: 0
   wpnPwr: 0
   armDef: 0
-  moves: []
+  moves:
+  - isPhysical: 1
+    isMagical: 0
+    isHealing: 0
+    isBuff: 0
+    isDebuff: 0
+    moveCost: 50
+    moveName: Super Sword Slash
+    description: A powerful physical attack
+    moveIcon: {fileID: 21300000, guid: 47ae1527db7c39f40834c28187b6ffef, type: 3}
+    visualEffect: {fileID: 3605531414427589408, guid: cd3075f84e43b2b43a05d27d9e29741c,
+      type: 3}
+    modifier: 100
+    affectHp: 1
+    affectMP: 0
+    affectStr: 0
+    affectDef: 0
+  - isPhysical: 0
+    isMagical: 1
+    isHealing: 0
+    isBuff: 0
+    isDebuff: 0
+    moveCost: 100
+    moveName: Fire Slash
+    description: A fire magic attack.
+    moveIcon: {fileID: 21300040, guid: 7384dec0e667b8643bee02d3ecaf659c, type: 3}
+    visualEffect: {fileID: 0}
+    modifier: 150
+    affectHp: 1
+    affectMP: 0
+    affectStr: 0
+    affectDef: 0
