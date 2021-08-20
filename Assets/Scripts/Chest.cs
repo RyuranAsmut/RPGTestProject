@@ -19,7 +19,7 @@ public class Chest : MonoBehaviour
     {
         if (canOpen && PlayerController.instance.canMove && Input.GetButtonDown("Fire1"))
         {
-            GameManager.instance.ChangeItemAmount(item.itemId, amount);
+            GameManager.instance.AddItem(item.itemId, amount);
             isEmpty = true;
             canOpen = false;
         }

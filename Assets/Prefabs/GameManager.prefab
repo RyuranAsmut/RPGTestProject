@@ -239,48 +239,94 @@ MonoBehaviour:
   - {fileID: 3364634189924525221}
   - {fileID: 3364634191247135018}
   - {fileID: 5645741409081781042}
-  item: []
+  item:
+  - {fileID: 11400000, guid: 4b2d3252eeb88a241abb623de5d79460, type: 2}
+  - {fileID: 11400000, guid: e24e21bac4c9141468f34078bc30731c, type: 2}
+  - {fileID: 11400000, guid: 6536b8b9016e8ea4bacfc3bd18420271, type: 2}
+  - {fileID: 11400000, guid: 8a58641fad86dbd4799cc4978bc365ae, type: 2}
+  - {fileID: 11400000, guid: 8f5328207443a994fb06ff766766876a, type: 2}
+  - {fileID: 11400000, guid: dbacce38fdc507e4b8800a993e6d925f, type: 2}
   inventory:
-  - {fileID: 6868704685091254363, guid: f87e6c46bede5ae4bae4a481cd379a05, type: 3}
-  - {fileID: 6868704685091254363, guid: 2b726c1ee9b014649a20b9483b47af1c, type: 3}
-  - {fileID: 6868704685091254363, guid: 37e84c8c91d58644795e7499edced010, type: 3}
-  - {fileID: 6868704685091254363, guid: eb62bff0c63157d4ba4daf3141c19b63, type: 3}
-  - {fileID: 6868704685091254363, guid: dcb60e9788703164b94ed90a0d77eeb4, type: 3}
-  - {fileID: 6868704685091254363, guid: c70de051b934055458dea53002199b88, type: 3}
-  - {fileID: 6868704685091254363, guid: b377610e1ea64cc4fadb0183739895b2, type: 3}
-  - {fileID: 6868704685091254363, guid: c979642815047d542853bf9ce7888d2c, type: 3}
-  - {fileID: 6868704685091254363, guid: 0775615694896344cb8cc79b371f3fc1, type: 3}
-  - {fileID: 6868704685091254363, guid: d5f037a4e7a301047bde0f4f9331f83b, type: 3}
-  - {fileID: 6868704685091254363, guid: a607ca19050b2b4429bf5f097a41e52f, type: 3}
-  - {fileID: 6868704685091254363, guid: 14aa5cee28a114b4b909e9ef1bb8eead, type: 3}
-  - {fileID: 6868704685091254363, guid: 1d14e56b0461ae04da84a9f6a92c45a0, type: 3}
-  - {fileID: 6868704685091254363, guid: 2d461b7666a86c74f8560970889b0566, type: 3}
-  - {fileID: 6868704685091254363, guid: 7d5522d0dd52de24a8c7045538016bd7, type: 3}
-  - {fileID: 6868704685091254363, guid: 40d329462087830499e103d886469b06, type: 3}
-  - {fileID: 6868704685091254363, guid: 8767d083686f98a43abcb07c88eaa2a8, type: 3}
-  - {fileID: 6868704685091254363, guid: c2270190c78285c4abfbafe78648ac43, type: 3}
-  - {fileID: 6868704685091254363, guid: 37981561333fed349a06c7fe32673ed0, type: 3}
-  - {fileID: 6868704685091254363, guid: 4177ca024fb7a9f40b2f2d989de4c089, type: 3}
-  - {fileID: 6868704685091254363, guid: 692b78b5f9f04944da9860e6a8a334d1, type: 3}
-  - {fileID: 6868704685091254363, guid: 38d4d0bd4d4f5b446b9fc2fc5a9d9821, type: 3}
-  - {fileID: 6868704685091254363, guid: a530bfccdc694994a8037cf47d1fbbfd, type: 3}
-  - {fileID: 6868704685091254363, guid: 99a429524003ea041b20290ae87cc591, type: 3}
-  - {fileID: 6868704685091254363, guid: 5002b2446f483584eb1ac0f6b42cd67d, type: 3}
-  - {fileID: 6868704685091254363, guid: ae5f48e5e173aa14c991e8196ad16d85, type: 3}
-  - {fileID: 6868704685091254363, guid: 92374bb5c1f9174459220ecc6c47949a, type: 3}
-  - {fileID: 6868704685091254363, guid: b70c9285db6a0094c8b7fac0aa36977b, type: 3}
-  - {fileID: 6868704685091254363, guid: 0fb8440468e05eb438e602be5e55c8e7, type: 3}
-  - {fileID: 6868704685091254363, guid: 8aa70e5943a5a1d4ca83182d24d67dc7, type: 3}
-  - {fileID: 6868704685091254363, guid: c84f59e6410d55742b402a6d8930d1dd, type: 3}
-  - {fileID: 6868704685091254363, guid: bf1148b5b58e43344a7f9981ac390691, type: 3}
-  - {fileID: 6868704685091254363, guid: b23c8f70cb93227429657109bddbd7a5, type: 3}
-  - {fileID: 6868704685091254363, guid: c3869b644c9f35b449398db72f27f6de, type: 3}
-  - {fileID: 6868704685091254363, guid: 142679a8e222def47b1f7c300247ae11, type: 3}
-  - {fileID: 6868704685091254363, guid: 5b440b5c4348ac44ba10746d487b7730, type: 3}
-  - {fileID: 6868704685091254363, guid: b856e2d4598bb8042b20f2edd92b531d, type: 3}
-  - {fileID: 6868704685091254363, guid: 1e39611272ddb1a418a6572d5fe69671, type: 3}
-  - {fileID: 6868704685091254363, guid: 2a6fcd83a21095042b347d946011756f, type: 3}
-  - {fileID: 6868704685091254363, guid: 2e7660071b191544798ec8996b9437de, type: 3}
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
+  - inventoryItem: {fileID: 0}
+    inventoryAmount: 0
   currentGold: 0
   menuOpen: 0
   dialogActive: 0

@@ -41,12 +41,12 @@ public class Shop : MonoBehaviour
 
     private void Update() 
     {
-        /* Gold debugging
-        if (Input.GetKeyDown(KeyCode.K))
+        //Gold debugging
+        /* if (Input.GetKeyDown(KeyCode.K))
         {
             GameManager.instance.currentGold =+ 1000;
-        } 
-        */   
+        }  */
+          
     }
 
     public void OpenShop()
@@ -184,7 +184,7 @@ public class Shop : MonoBehaviour
             GameManager.instance.currentGold -= activeItem.monetaryValue;
             RefreshGoldDisplay();
             activeSlot.SetAmount(activeSlot.GetAmount() - 1);
-            GameManager.instance.ChangeItemAmount(activeItem.itemId, 1);
+            GameManager.instance.AddItem(activeItem.itemId, 1);
             if (activeSlot.GetAmount() <= 0)
             {
                 ClearActiveItem();
@@ -201,7 +201,7 @@ public class Shop : MonoBehaviour
             //Making sure to sell the item for half the price and the value is a int
             GameManager.instance.currentGold += Mathf.FloorToInt(activeItem.monetaryValue/2);
             RefreshGoldDisplay();
-            GameManager.instance.ChangeItemAmount(activeItem.itemId, -1);
+            GameManager.instance.RemoveItem(activeItem.itemId, -1);
             if (GameManager.instance.GetItemAmount(activeItem.itemId) <= 0)
             {
                 ClearActiveItem();

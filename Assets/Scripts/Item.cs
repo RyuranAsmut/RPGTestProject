@@ -47,7 +47,7 @@ public class Item : ScriptableObject
         {
             if(selectedChar.equippedArmor)
             {
-                GameManager.instance.ChangeItemAmount(selectedChar.equippedArmor.itemId, 1);
+                GameManager.instance.AddItem(selectedChar.equippedArmor.itemId, 1);
             }
                 selectedChar.equippedArmor = this;
                 selectedChar.armorDef = armorDef;
@@ -57,13 +57,13 @@ public class Item : ScriptableObject
         {
             if(selectedChar.equippedWeapon)
             {
-                GameManager.instance.ChangeItemAmount(selectedChar.equippedWeapon.itemId, 1);
+                GameManager.instance.AddItem(selectedChar.equippedWeapon.itemId, 1);
             }
                 selectedChar.equippedWeapon = this;
                 selectedChar.weaponPower = weaponStr;
         }
 
-        GameManager.instance.ChangeItemAmount(itemId, -1);
+        GameManager.instance.RemoveItem(itemId, -1);
     }
 
 }

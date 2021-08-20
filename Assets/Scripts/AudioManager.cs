@@ -3,6 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*TODO
+-Make a proper volume configuration
+*/
+
 public class AudioManager : MonoBehaviour
 {
     public AudioSource[] bgmArray;
@@ -15,8 +19,19 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         instance = this;
-
         DontDestroyOnLoad(this.gameObject);
+
+        PlayerPrefsManager.SetMasterVolume(0.2f);
+
+        foreach (AudioSource bgm in bgmArray)
+        {
+            bgm.volume = PlayerPrefsManager.GetMasterVolume();
+        }
+         foreach (AudioSource sfx in sfxArray)
+        {
+            sfx.volume = PlayerPrefsManager.GetMasterVolume();
+        }
+
     }
 
     private void Update()

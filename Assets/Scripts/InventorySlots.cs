@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class InventorySlots : MonoBehaviour
+public class InventorySlots
 {
     public Item inventoryItem;
     [SerializeField] private int inventoryAmount;

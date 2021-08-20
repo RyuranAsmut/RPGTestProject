@@ -44,7 +44,7 @@ public class GameMenu : MonoBehaviour
 
     public static GameMenu instance;
 
-    private void Start() 
+    private void Start()
     {
         if (!instance)
         {
@@ -54,7 +54,7 @@ public class GameMenu : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);    
+        DontDestroyOnLoad(gameObject);
     }
 
 
@@ -103,10 +103,10 @@ public class GameMenu : MonoBehaviour
         charStats = GameManager.instance.charStats;
         goldAmount.text = GameManager.instance.currentGold.ToString() + "G";
 
-        for(int i = 0; i < charStats.Length; i++)
+        for (int i = 0; i < charStats.Length; i++)
         {
             //If the character is active in the party
-            if(charStats[i].isActiveInParty)
+            if (charStats[i].isActiveInParty)
             {
                 //Show and update each stats in the array
                 charStatsHolder[i].SetActive(true);
@@ -136,7 +136,7 @@ public class GameMenu : MonoBehaviour
     {
         UpdateMainStats();
         //Check for every window when the button is clicked
-        for(int i = 0; i < windows.Length; i++)
+        for (int i = 0; i < windows.Length; i++)
         {
             //if the number of the window is the same as the button
             if (i == windowNumber)
@@ -158,7 +158,7 @@ public class GameMenu : MonoBehaviour
 
     public void CloseMenu()
     {
-        foreach(GameObject window in windows)
+        foreach (GameObject window in windows)
         {
             window.SetActive(false);
         }
@@ -190,20 +190,20 @@ public class GameMenu : MonoBehaviour
         charMp.text = "" + charStats[selected].currentMP + "/" + charStats[selected].maxMP;
         charAtk.text = charStats[selected].power.ToString();
         charDef.text = charStats[selected].power.ToString();
-        if(charStats[selected].equippedWeapon)
+        if (charStats[selected].equippedWeapon)
         {
             charWp.text = charStats[selected].equippedWeapon.itemName;
-            charWpPwr.text = charStats[selected].weaponPower.ToString(); 
+            charWpPwr.text = charStats[selected].weaponPower.ToString();
         }
         else
         {
             charWp.text = "None";
             charWpPwr.text = "0";
         }
-        if(charStats[selected].equippedArmor)
+        if (charStats[selected].equippedArmor)
         {
             charArm.text = charStats[selected].equippedArmor.itemName;
-            charArmPwr.text = charStats[selected].armorDef.ToString(); 
+            charArmPwr.text = charStats[selected].armorDef.ToString();
         }
         else
         {
@@ -223,12 +223,12 @@ public class GameMenu : MonoBehaviour
         {
             if (slots.GetAmount() > 0 && slots.inventoryItem != null)
             {
-              GameObject newItemButton = Instantiate(invItemButton) as GameObject;
-              ItemButton buttonInv = newItemButton.GetComponent<ItemButton>();
-              buttonInv.buttonItem = slots.inventoryItem;
-              buttonInv.buttonImage.sprite = slots.inventoryItem.itemSprite;
-              buttonInv.buttonText.text = slots.GetAmount().ToString();
-              newItemButton.transform.SetParent(invItensHolder.transform, false);
+                GameObject newItemButton = Instantiate(invItemButton) as GameObject;
+                ItemButton buttonInv = newItemButton.GetComponent<ItemButton>();
+                buttonInv.buttonItem = slots.inventoryItem;
+                buttonInv.buttonImage.sprite = slots.inventoryItem.itemSprite;
+                buttonInv.buttonText.text = slots.GetAmount().ToString();
+                newItemButton.transform.SetParent(invItensHolder.transform, false);
             }
         }
     }
@@ -278,7 +278,7 @@ public class GameMenu : MonoBehaviour
 
     public void DiscardItem()
     {
-        if(activeItem)
+        if (activeItem)
         {
             confirmationPanel.SetActive(true);
         }
@@ -287,7 +287,21 @@ public class GameMenu : MonoBehaviour
 
     public void DiscardConfirmAction()
     {
-        GameManager.instance.inventory[activeItem.itemId - 1].SetAmount(0);
+        //Loop through all the inventory slots to check for a matching id
+        foreach (InventorySlots slot in GameManager.instance.inventory)
+        {
+            //check if the lost has an item
+            if (slot.inventoryItem)
+            {
+                //if the id matches, empty the slot
+                if (slot.inventoryItem.itemId == activeItem.itemId)
+                {
+                    slot.SetItem(null);
+                    slot.SetAmount(0);
+                }
+            }
+        }
+        GameManager.instance.SortEmptySlots();
         UpdateItems();
         confirmationPanel.SetActive(false);
         activeItem = null;
@@ -301,7 +315,7 @@ public class GameMenu : MonoBehaviour
 
     public void OpenCharChoice()
     {
-        if(activeItem.isArmor || activeItem.isWeapon)
+        if (activeItem.isArmor || activeItem.isWeapon)
         {
             itemCharChoiceText.text = "Choose character to equip it:";
         }
@@ -326,7 +340,7 @@ public class GameMenu : MonoBehaviour
 
     public void UseItem(int selectedChar)
     {
-        if(activeItem)
+        if (activeItem)
         {
             activeItem.UseItem(selectedChar);
             CloseCharChoice();
