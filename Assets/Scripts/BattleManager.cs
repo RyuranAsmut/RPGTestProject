@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 /*TODO
 -Implement a Visual Turn Tracker
 -Implement a Position Change Action
 -Make the turns based on speed/Agility and character actions
+-Improve the damage calulation formula to work in weakness and resistences
+-Improve the damage display and effects
 */
 
 
@@ -16,7 +19,10 @@ public class BattleManager : MonoBehaviour
     private bool battleActive;
 
     public GameObject battleScene;
+    public GameObject attackPanel;
+    public TextMeshProUGUI attackTxt;
     public GameObject actionButtons;
+    public GameObject enemyAtkVfx;
 
     public Transform[] playerPosition;
     public Transform[] enemyPosition;
@@ -36,6 +42,7 @@ public class BattleManager : MonoBehaviour
 
     private void Update()
     {
+        //Battle debugging
         if (Input.GetKeyDown(KeyCode.B))
         {
             BattleStart(new string[] { "Spider", "Slime" });
@@ -46,6 +53,7 @@ public class BattleManager : MonoBehaviour
             Debug.Log(currentTurn);
         }
 
+        //Check if there's an active battle
         if (battleActive)
         {
             if (turnWaiting)
@@ -69,6 +77,7 @@ public class BattleManager : MonoBehaviour
     public void BattleStart(string[] enemiesTospawn)
     {
         turnWaiting = true;
+        //This determins the first character to act in battle
         currentTurn = 0;
         if (!battleActive)
         {
@@ -79,8 +88,10 @@ public class BattleManager : MonoBehaviour
                 Camera.main.transform.position.x, (Camera.main.transform.position.y + 1), transform.position.z);
 
             battleScene.SetActive(true);
+            //Play the correspondent BGM from the AudioManager
             AudioManager.instance.PlayBGM(6);
 
+            //Check for each active character in the player party and instantiate it on the battle scene
             for (int i = 0; i < playerParty.Length; i++)
             {
                 if (GameManager.instance.charStats[i].isActiveInParty)
@@ -106,6 +117,7 @@ public class BattleManager : MonoBehaviour
                 }
             }
 
+            //Spawn the enemies given in the function parameters
             for (int i = 0; i < enemiesTospawn.Length; i++)
             {
                 Debug.Log(enemiesTospawn[i]);
@@ -128,7 +140,9 @@ public class BattleManager : MonoBehaviour
 
     public void NextTurn()
     {
+        //Advance turn count
         currentTurn++;
+        //If the turn cout is greater than the active Battlers list, reset it
         if (currentTurn >= activeBattler.Count)
         {
             currentTurn = 0;
@@ -139,11 +153,14 @@ public class BattleManager : MonoBehaviour
 
     public void UpdateBattle()
     {
+        //Conditions to end the battle
         bool playerPartyWipedOut = true;
         bool enemyPartyWipedOut = true;
 
+        //Check for the conditions to end the battle
         foreach (Battler characterInBattle in activeBattler)
         {
+            //Check the chacters health, if bellow 0 set it to 0
             if (characterInBattle.currentHp < 0)
             {
                 characterInBattle.currentHp = 0;
@@ -155,6 +172,7 @@ public class BattleManager : MonoBehaviour
             }
             else
             {
+                //If one character still alive, the battle resumes
                 if (characterInBattle.isPlayer)
                 {
                     playerPartyWipedOut = false;
@@ -165,12 +183,15 @@ public class BattleManager : MonoBehaviour
                 }
             }
         }
+        //If one of the partys is wiped out, end the battle
         if (playerPartyWipedOut || enemyPartyWipedOut)
         {
+            //If it's the player party call Gamer Over
             if (playerPartyWipedOut)
             {
                 //Game Over
             }
+            //If it's the enemy party call victory screen
             else
             {
                 //Battle Over/Victory
@@ -184,10 +205,11 @@ public class BattleManager : MonoBehaviour
 
     public IEnumerator EnemyMoveCo()
     {
+        //This is to give some time to show the enemy's attack
         turnWaiting = false;
         yield return new WaitForSeconds(1f);
         EnemyAttack();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         NextTurn();
     }
 
@@ -204,11 +226,63 @@ public class BattleManager : MonoBehaviour
         }
         //Select a random target from the avaible characters
         int attackTarget = activePlayerparty[Random.Range(0, activePlayerparty.Count)];
+        //To improve code readability
+        Battler target = activeBattler[attackTarget];
+        Battler attacker = activeBattler[currentTurn];
 
         //Select a random attack from the active battler moves
-        int selectAttack = Random.Range(0, activeBattler[currentTurn].moves.Length);
+        int selectAttack = Random.Range(0, attacker.moves.Length);
+
+        //Show the name of the enemy and the move he is usig;
+        StartCoroutine(AttackText(attacker.battlerName, attacker.moves[selectAttack].moveName));
+        
+        //VFX to show which enemy is attacking
+        Instantiate(enemyAtkVfx, attacker.transform.position, attacker.transform.rotation);
 
         //Instantiate the visual effect on the target's position
-        Instantiate(activeBattler[currentTurn].moves[selectAttack].visualEffect, activeBattler[attackTarget].transform.position, activeBattler[attackTarget].transform.rotation);
+        Instantiate(attacker.moves[selectAttack].visualEffect, target.transform.position, target.transform.rotation);
+
+        //Pass on the target and the move power modifier 
+        DealDamage(attackTarget, attacker.moves[selectAttack].modifier);
+    }
+
+    public IEnumerator AttackText(string attackerName, string enemyMove)
+    {
+        //This is to give some time to show the enemy's attack text
+        attackPanel.SetActive(true);
+        Debug.Log(attackerName + " used " + enemyMove);
+        attackTxt.text = attackerName + " used " + enemyMove + "!";
+        yield return new WaitForSeconds(1f);
+        attackPanel.SetActive(false);
+    }
+
+    //Calculate the damage
+    public void DealDamage(int target, int damagePower)
+    {
+        //Get the sum of powwr/def with the weaponPwr/ArmorDef as a float to do calculations
+        float atkPower = activeBattler[currentTurn].power + activeBattler[currentTurn].wpnPwr;
+        float defense = activeBattler[target].defense + activeBattler[target].armDef;
+
+        //Damage formula to calculate the raw damage
+        float rawDamage = (atkPower/defense) * damagePower * Random.Range(.9f, 1.2f);
+        //Convert the damage to int before applyint it
+        int actualDamage = Mathf.RoundToInt(rawDamage);
+        //Apply the damage to the targer;
+        activeBattler[target].currentHp -= actualDamage;
+
+        //Display the Damage dealt by the attacker
+        StartCoroutine(AttackerDamageText(activeBattler[currentTurn].battlerName, actualDamage));
+
+
+       // Debug.Log(activeBattler[currentTurn].battlerName + " is dealing " + rawDamage + " converted to " + actualDamage + " hitting " + activeBattler[target].battlerName);
+    }
+      public IEnumerator AttackerDamageText(string attackerName, int damageNumber)
+    {
+        //This is to give some time to show the enemy's attack damage text
+        yield return new WaitForSeconds(1f);
+        attackPanel.SetActive(true);
+        attackTxt.text = attackerName + " did " + damageNumber + " damage!";
+        yield return new WaitForSeconds(1f);
+        attackPanel.SetActive(false);
     }
 }
